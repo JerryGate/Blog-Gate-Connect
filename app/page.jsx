@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import CreatorCTA from "@/components/CreatorCTA";
+import Hero2 from "@/components/Hero2";
 
 export const revalidate = 7200;
 
@@ -19,15 +20,14 @@ async function getPost() {
       createdAt: "desc",
     },
   });
-  const posts = postsResponse.slice(0, 4);
-  return posts;
+  return postsResponse;
 }
 
 export default function HomeRoute() {
   return (
     <>
       <div className="min-h-screen">
-        <Hero />
+        <Hero2 />
         <div className="max-w-8xl mx-auto mb-4">
           <h1 className="text-2xl md:text-3xl mt-3 text-gray-800 font-bold tracking-tight mb-4">
             Latest Posts
