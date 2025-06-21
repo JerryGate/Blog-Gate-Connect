@@ -6,14 +6,6 @@ import { MdDelete } from "react-icons/md";
 import { deletePost } from "@/app/actions";
 import { notFound } from "next/navigation";
 
-export const revalidate = 7200;
-
-export async function generateStaticParams() {
-  const posts = await prisma.blogPost.findMany();
-
-  return posts.map((postId) => ({ id: postId }));
-}
-
 async function getPosts(userId) {
   const posts = await prisma.blogPost.findMany({
     where: {
