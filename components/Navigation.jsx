@@ -13,13 +13,8 @@ import { FaBlog } from "react-icons/fa6";
 import Link from "next/link";
 export default function Navigation() {
   const { getUser } = useKindeBrowserClient();
-  let user = null;
-  try {
-    user = getUser();
-  } catch (error) {
-    console.error("Failed to fetch user:", error);
-    // Optionally, handle specific AbortError here
-  }
+  const user = getUser();
+
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
@@ -59,7 +54,6 @@ export default function Navigation() {
             </Link>
           ))}
         </div>
-       
       </div>
       {user ? (
         <div className="hidden md:flex items-center gap-5">

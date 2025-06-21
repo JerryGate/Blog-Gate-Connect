@@ -4,6 +4,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { deletePost } from "@/app/actions";
+import { notFound } from "next/navigation";
 
 export const revalidate = 7200;
 
@@ -24,12 +25,10 @@ async function getPosts(userId) {
 
 export default async function ManagePostBoard() {
   const { getUser } = getKindeServerSession();
-  let user = null;
-  try {
-    user = await getUser();
-  } catch (error) {
-    console.error("Failed to fetch user:", error);
-    // Optionally, handle specific AbortError here
+  const user = await getUser();
+
+  if (!user) {
+    return notFound();
   }
   const posts = await getPosts(user?.id);
   return (

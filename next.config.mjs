@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    webpack: (config) => {
+        config.resolve.fallback = {
+            ...config.resolve.fallback,
+            'expo-secure-store': false,
+        };
+        return config;
+    },
     images: {
         remotePatterns: [
             {

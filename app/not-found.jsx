@@ -1,8 +1,6 @@
-"use client";
 import Link from "next/link";
-import React from "react";
 
-const NotFound = () => {
+export default function NotFound() {
   return (
     <>
       <section className="bg-white dark:bg-gray-900 ">
@@ -59,6 +57,4 @@ const NotFound = () => {
       </section>
     </>
   );
-};
-
-export default NotFound;
+}

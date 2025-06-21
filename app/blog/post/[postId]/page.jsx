@@ -1,6 +1,5 @@
 import BackButton from "@/components/BackButton";
 import { prisma } from "@/app/utils/prisma";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
@@ -23,9 +22,6 @@ async function getPost(postId) {
 }
 
 export default async function SingleBlogPage({ params }) {
-  const { getUser } = getKindeServerSession();
-  user = await getUser();
-
   const { postId } = await params;
 
   if (!postId) {

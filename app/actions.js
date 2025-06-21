@@ -8,13 +8,8 @@ import { revalidatePath } from "next/cache";
 
 export async function createPost(state, formData) {
     const { getUser } = getKindeServerSession();
-    let user = null;
-    try {
-        user = await getUser();
-    } catch (error) {
-        console.error('Failed to fetch user:', error);
-        // Optionally, handle specific AbortError here
-    }
+    const user = await getUser();
+
     if (!user) {
         return redirect("/api/auth/register");
     }
@@ -37,9 +32,9 @@ export async function createPost(state, formData) {
             title,
             content,
             imageUrl,
-            authorId: user.id,
-            authorName: user.given_name || "Nill",
-            authorImage: user.picture,
+            authorId: user?.id,
+            authorName: user?.given_name || "Nill",
+            authorImage: user?.picture,
         }
     });
 
@@ -49,12 +44,7 @@ export async function createPost(state, formData) {
 
 export async function updatePost(state, formData) {
     const { getUser } = getKindeServerSession();
-    let user = null;
-    try {
-        user = await getUser();
-    } catch (error) {
-        console.error('Failed to fetch user:', error);
-    }
+    const user = await getUser();
     if (!user) {
         return redirect("/api/auth/register");
     }
@@ -91,13 +81,7 @@ export async function updatePost(state, formData) {
 
 export async function deletePost(formData) {
     const { getUser } = getKindeServerSession();
-    let user = null;
-    try {
-        user = await getUser();
-    } catch (error) {
-        console.error('Failed to fetch user:', error);
-        // Optionally, handle specific AbortError here
-    }
+    const user = await getUser();
     if (!user) {
         return redirect("/api/auth/register");
     }

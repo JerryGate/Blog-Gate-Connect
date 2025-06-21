@@ -81,17 +81,14 @@ export default function DashboardRoute() {
 
 async function BlogPost() {
   const { getUser } = getKindeServerSession();
-  let user = null;
-  try {
-    user = await getUser();
-  } catch (error) {
-    console.error("Failed to fetch user:", error);
+  const user = await getUser();
+
+  if (!user) {
+    return notFound();
   }
 
-  console.log(user)
-
   await new Promise((resolve) => setTimeout(resolve, 2000));
-  const posts = await getPosts(user.id);
+  const posts = await getPosts(user?.id);
 
   return (
     <div className="bg-white p-4">

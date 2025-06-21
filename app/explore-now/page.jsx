@@ -1,6 +1,6 @@
 import BackButton from "@/components/BackButton";
 import BlogPostCard from "@/components/BlogPostCard";
-import Link from "next/link";
+import { prisma } from "../utils/prisma";
 
 async function getPost() {
   const posts = await prisma.blogPost.findMany();
