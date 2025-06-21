@@ -3,14 +3,6 @@ import { prisma } from "@/app/utils/prisma";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-export const revalidate = 7200;
-
-export async function generateStaticParams() {
-  const posts = await prisma.blogPost.findMany();
-
-  return posts.map((postId) => ({ id: postId }));
-}
-
 async function getPost(postId) {
   const post = await prisma.blogPost.findUnique({
     where: {

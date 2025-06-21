@@ -8,9 +8,8 @@ import {
   LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import Image from "next/image";
-import { FaBlog } from "react-icons/fa6";
-
 import Link from "next/link";
+
 export default function Navigation() {
   const { getUser } = useKindeBrowserClient();
   const user = getUser();

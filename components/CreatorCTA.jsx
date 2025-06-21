@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Suspense } from "react";
 
 export default function CreatorCTA() {
@@ -33,12 +33,12 @@ export default function CreatorCTA() {
               </p>
 
               <div className="inline-flex w-full mt-6 sm:w-auto">
-                <a
+                <Link
                   href="mailto:jerrydominic11@gmail.com"
                   className="inline-flex items-center justify-center w-full px-6 py-2 text-sm text-white duration-300 bg-blue-500 rounded-lg hover:bg-blue-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
                 >
                   Email Now
-                </a>
+                </Link>
               </div>
             </div>
           </div>

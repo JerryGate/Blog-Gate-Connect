@@ -6,15 +6,6 @@ import { notFound } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 
-export const revalidate = 7200;
-
-export async function generateStaticParams() {
-  const posts = await prisma.blogPost.findMany();
-
-  return posts.map((post) => ({
-    userId: post.authorId,
-  }));
-}
 async function getPosts(userId) {
   const posts = await prisma.blogPost.findMany({
     where: {

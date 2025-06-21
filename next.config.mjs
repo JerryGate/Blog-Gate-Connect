@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    webpack: (config) => {
-        config.resolve.fallback = {
-            ...config.resolve.fallback,
-            'expo-secure-store': false,
-        };
+    webpack: (config, { isServer }) => {
+        if (isServer) {
+            config.resolve.alias['expo-secure-store'] = false;
+        }
         return config;
     },
     images: {
