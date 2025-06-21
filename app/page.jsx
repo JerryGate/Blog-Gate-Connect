@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import CreatorCTA from "@/components/CreatorCTA";
 import Hero2 from "@/components/Hero2";
 
-export const revalidate = 3600;
+export const revalidate = 20000;
 
 export async function generateStaticParams() {
   const posts = await prisma.blogPost.findMany();
