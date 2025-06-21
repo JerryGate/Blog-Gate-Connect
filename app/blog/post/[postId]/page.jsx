@@ -24,13 +24,8 @@ async function getPost(postId) {
 
 export default async function SingleBlogPage({ params }) {
   const { getUser } = getKindeServerSession();
-  let user = null;
-  try {
-    user = await getUser();
-  } catch (error) {
-    console.error("Failed to fetch user:", error);
-    // Optionally, handle specific AbortError here
-  }
+  user = await getUser();
+
   const { postId } = await params;
 
   if (!postId) {
