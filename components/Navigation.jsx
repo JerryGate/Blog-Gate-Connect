@@ -43,7 +43,7 @@ export default function Navigation() {
             <Link
               href={link.href}
               key={link.href}
-              className={`text-lg  hover:text-gray-800 transition-colors  ${
+              className={`text-md md:text-lg hover:text-gray-800 transition-colors  ${
                 pathname === link.href
                   ? "border-b-2 border-blue-600 text-blue-500 "
                   : ""

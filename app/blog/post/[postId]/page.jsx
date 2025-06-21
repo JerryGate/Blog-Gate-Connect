@@ -25,7 +25,7 @@ export default async function SingleBlogPage({ params }) {
     return notFound();
   }
   return (
-    <div className="min-h-screen max-w-6xl mx-auto py-8 px-4">
+    <div className="min-h-screen max-w-6xl mx-auto px-2">
       <div className="mt-5">
         <BackButton />
       </div>

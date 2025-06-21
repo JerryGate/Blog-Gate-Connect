@@ -28,8 +28,8 @@ export default function HomeRoute() {
     <>
       <div className="min-h-screen">
         <Hero />
-        <div className="max-w-8xl mx-auto p-4 mb-4">
-          <h1 className="text-3xl text-gray-800 font-bold tracking-tight ml-10">
+        <div className="max-w-8xl mx-auto mb-4">
+          <h1 className="text-2xl md:text-3xl mt-3 text-gray-800 font-bold tracking-tight mb-4">
             Latest Posts
           </h1>
           <div>
@@ -45,10 +45,10 @@ export default function HomeRoute() {
 }
 
 async function BlogPost() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const posts = await getPost();
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:p-4">
       {posts.map((post) => (
         <BlogPostCard key={post.id} post={post} />
       ))}

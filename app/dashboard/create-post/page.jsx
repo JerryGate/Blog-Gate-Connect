@@ -7,13 +7,13 @@ export default async function () {
         <div>
           <Link
             href="/dashboard"
-            className="bg-blue-500 rounded-md p-3 tranistion-colors duration-200 hover:bg-blue-700 text-white"
+            className="hidden bg-blue-500 rounded-md p-3 tranistion-colors duration-200 hover:bg-blue-700 text-white"
           >
             Back to Dashboard
           </Link>
         </div>
         <div className="max-w-7xl mx-auto mt-2 mb-5">
-          <div className="p-4 py-3">
+          <div className="p-2 py-3">
             <h2 className="text-3xl text-center font-semibold tracking-tight">
               Create a New Post
             </h2>
@@ -22,9 +22,7 @@ export default async function () {
             </p>
           </div>
 
-          <div className="p-4">
-            <CreatePostForm />
-          </div>
+          <CreatePostForm />
         </div>
       </div>
     </>

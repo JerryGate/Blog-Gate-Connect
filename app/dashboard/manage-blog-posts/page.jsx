@@ -24,8 +24,8 @@ export default async function ManagePostBoard() {
   }
   const posts = await getPosts(user?.id);
   return (
-    <div className="min-h-screen bg-white py-3 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-6">
+    <div className="min-h-screen bg-white py-2 sm:px-4 lg:px-6">
+      <div className="shadow max-w-6xl md:shadow-lg mx-auto bg-white lg:shadow-lg rounded-lg p-6">
         <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
           Manage Blog Posts
         </h1>
@@ -59,7 +59,7 @@ export default async function ManagePostBoard() {
                       className="cursor-pointer"
                     >
                       <button className="bg-blue-500 text-white cursor-pointer px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-200">
-                        <FaEdit className="inline mr-1 size-6" />
+                        <FaEdit className="inline mr-1 size-4" />
                       </button>
                     </Link>
                   </td>
@@ -70,7 +70,7 @@ export default async function ManagePostBoard() {
                         type="submit"
                         className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors duration-200"
                       >
-                        <MdDelete className="inline mr-1 size-6" />
+                        <MdDelete className="inline mr-1 size-4" />
                       </button>
                     </form>
                   </td>
