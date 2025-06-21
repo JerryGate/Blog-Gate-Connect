@@ -6,6 +6,11 @@ import { notFound } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 
+async function generateStaticParams() {
+  const posts = await prisma.blogPost.findMany();
+  return posts.map((post) => ({ slug: post.authorId }));
+}
+
 async function getPosts(userId) {
   const posts = await prisma.blogPost.findMany({
     where: {

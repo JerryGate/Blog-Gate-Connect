@@ -1,12 +1,11 @@
 import { prisma } from "@/app/utils/prisma";
 import BlogPostCard from "@/components/BlogPostCard";
-import Hero from "@/components/Hero";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import CreatorCTA from "@/components/CreatorCTA";
 import Hero2 from "@/components/Hero2";
 
-export const revalidate = 7200;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const posts = await prisma.blogPost.findMany();

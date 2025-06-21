@@ -6,6 +6,11 @@ import { MdDelete } from "react-icons/md";
 import { deletePost } from "@/app/actions";
 import { notFound } from "next/navigation";
 
+async function generateStaticParams() {
+  const posts = await prisma.blogPost.findMany();
+  return posts.map((post) => ({ slug: post.authorId }));
+}
+
 async function getPosts(userId) {
   const posts = await prisma.blogPost.findMany({
     where: {
